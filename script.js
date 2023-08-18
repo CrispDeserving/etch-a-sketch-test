@@ -9,9 +9,9 @@ function getWindowHeight() {
 }
 
 function calculateGap() {
-    const wrapper_side_length = document.querySelector(".wrapper").clientWidth;
+    const wrapper_side_length = document.querySelector(".pixel-wrapper").clientWidth;
     const GAPS = ROWS + 1;
-    
+
     const wrapper_by_pixel_widths = ROWS + (GAPS * PIXEL_TO_GAP_PERCENT);
     const pixel_width = (wrapper_side_length / wrapper_by_pixel_widths);
     const gap_width = pixel_width * PIXEL_TO_GAP_PERCENT;
@@ -21,7 +21,7 @@ function calculateGap() {
 }
 
 function updateGap(gap_length) {
-    const wrapper = document.querySelector(".wrapper");
+    const wrapper = document.querySelector(".pixel-wrapper");
     const row_wrappers = document.querySelectorAll(".row-wrapper");
 
     wrapper.style["padding"] = gap_length;
@@ -33,7 +33,7 @@ function updateGap(gap_length) {
 }
 
 function addPixels() {
-    const wrapper = document.querySelector(".wrapper");
+    const wrapper = document.querySelector(".pixel-wrapper");
     
     const row_wrapper = document.createElement("div");
     row_wrapper.classList.add("row-wrapper");
