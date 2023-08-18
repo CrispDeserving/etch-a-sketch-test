@@ -4,22 +4,31 @@ function setup() {
     updateGap(calculateGap());
 }
 
+function getWindowHeight() {
+    return document.documentElement.clientHeight;
+}
+
 function calculateGap() {
     const wrapper_side_length = document.querySelector(".wrapper").clientWidth;
+    const GAPS = ROWS + 1;
+    
+    const wrapper_by_pixel_widths = ROWS + (GAPS * PIXEL_TO_GAP_PERCENT);
+    const pixel_width = (wrapper_side_length / wrapper_by_pixel_widths);
+    const gap_width = pixel_width * PIXEL_TO_GAP_PERCENT;
 
-    return wrapper_side_length * GAP_PERCENT;
+    const GAP_UNITS = `${100 * Math.max(gap_width, 2) / getWindowHeight()}vh`;
+    return GAP_UNITS;
 }
 
 function updateGap(gap_length) {
     const wrapper = document.querySelector(".wrapper");
     const row_wrappers = document.querySelectorAll(".row-wrapper");
-    const GAP_UNITS = `${gap_length}px`;
 
-    wrapper.style["padding"] = GAP_UNITS;
-    wrapper.style["gap"] = GAP_UNITS;
+    wrapper.style["padding"] = gap_length;
+    wrapper.style["gap"] = gap_length;
     
     for (let row of row_wrappers) {
-        row.style["gap"] = GAP_UNITS;
+        row.style["gap"] = gap_length;
     }
 }
 
