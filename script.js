@@ -1,13 +1,21 @@
-const ELEMENTS = 16;
+const ROWS = 4;
+const COLUMNS = 4;
 
 window.addEventListener("DOMContentLoaded", () => {
     const wrapper = document.querySelector(".wrapper");
     
+    const row_wrapper = document.createElement("div");
+    row_wrapper.classList.add("row-wrapper");
+    
     const pixel = document.createElement("div");
     pixel.classList.add("pixel");
-
-    for (let i=0; i<ELEMENTS; i++) {
+    for (let i=0; i<COLUMNS; i++) {
         const new_pixel = pixel.cloneNode();
-        wrapper.appendChild(new_pixel);
+        row_wrapper.appendChild(new_pixel);
+    }
+
+    for (let j=0; j<ROWS; j++) {
+        const new_wrapper = row_wrapper.cloneNode(true);
+        wrapper.appendChild(new_wrapper);
     }
 });
