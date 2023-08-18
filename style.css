@@ -6,10 +6,22 @@
 
 body {
     display: flex;
-    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    flex: initial;
+    height: 100vh;
+    width: 20vw;
+    background-color: rgb(220, 231, 245);
+}
+
+.pixel-canvas {
+    flex: 1 1 auto;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
     height: 100vh;
 }
 
