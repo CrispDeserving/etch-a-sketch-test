@@ -31,7 +31,9 @@ function bindPixelHovers() {
         });
 
         pixel.addEventListener("mouseout", (e) => {
-            e.target.classList.remove("highlight");
+            setTimeout(() => {
+                e.target.classList.remove("highlight");
+            }, HIGHLIGHT_UNBIND_DELAY);
         });
     }
 }

@@ -35,4 +35,9 @@ body {
 .pixel {
     flex: 1;
     background-color: rgb(255, 254, 241);
+    transition: all 0.25s ease;
+}
+
+.highlight {
+    background-color: red;
 }
