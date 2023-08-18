@@ -1,3 +1,7 @@
+function setup() {
+    addPixels();
+}
+
 function addPixels() {
     const wrapper = document.querySelector(".wrapper");
     
