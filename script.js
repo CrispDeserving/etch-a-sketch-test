@@ -1,19 +1,23 @@
 function setup() {
-    newPixelCanvas(DEFAULT_PIXELS_PER_SIDE);
-    bindPixelHovers();
+    createPixelCanvas(DEFAULT_PIXELS_PER_SIDE);
     bindButtons();
-    updateGap(calculateGap());
+}
+
+function createPixelCanvas(pixels_per_side) {
+    newPixelCanvas(pixels_per_side);
+    bindPixelHovers();
+    updateGap(calculateGap(pixels_per_side));
 }
 
 function getWindowHeight() {
     return document.documentElement.clientHeight;
 }
 
-function calculateGap() {
+function calculateGap(pixels_per_side) {
     const wrapper_side_length = document.querySelector(".pixel-wrapper").clientWidth;
-    const GAPS = PIXELS_PER_SIDE + 1;
+    const GAPS = pixels_per_side + 1;
 
-    const wrapper_by_pixel_widths = PIXELS_PER_SIDE + (GAPS * PIXEL_TO_GAP_PERCENT);
+    const wrapper_by_pixel_widths = pixels_per_side + (GAPS * PIXEL_TO_GAP_PERCENT);
     const pixel_width = (wrapper_side_length / wrapper_by_pixel_widths);
     const gap_width = pixel_width * PIXEL_TO_GAP_PERCENT;
 
@@ -43,7 +47,7 @@ function updatePixelSides() {
     const new_pixel_sides = Number(prompt("How many pixels per side?"));
     if (new_pixel_sides === NaN || new_pixel_sides <= 0) return;
 
-    newPixelCanvas(new_pixel_sides);
+    createPixelCanvas(new_pixel_sides);
 }
 
 function newPixelCanvas(pixels_per_side) {
