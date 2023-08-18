@@ -1,6 +1,26 @@
 function setup() {
     addPixels();
     bindPixelHovers();
+    updateGap(calculateGap());
+}
+
+function calculateGap() {
+    const wrapper_side_length = document.querySelector(".wrapper").clientWidth;
+
+    return wrapper_side_length * GAP_PERCENT;
+}
+
+function updateGap(gap_length) {
+    const wrapper = document.querySelector(".wrapper");
+    const row_wrappers = document.querySelectorAll(".row-wrapper");
+    const GAP_UNITS = `${gap_length}px`;
+
+    wrapper.style["padding"] = GAP_UNITS;
+    wrapper.style["gap"] = GAP_UNITS;
+    
+    for (let row of row_wrappers) {
+        row.style["gap"] = GAP_UNITS;
+    }
 }
 
 function addPixels() {
