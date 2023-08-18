@@ -17,7 +17,8 @@ body {
     flex: initial;
     height: 100vh;
     width: 30vw;
-    background-color: rgb(141, 141, 141);
+    background: rgb(154,154,154);
+    background: linear-gradient(90deg, rgb(154, 154, 154) 0%, rgb(93,93,186) 50%, rgb(154,154,154) 100%);
 }
 
 .title-wrapper {
@@ -46,7 +47,8 @@ body {
     padding: 8vh 5vh;
     flex: 1;
     width: 25vw;
-    background-color: rgb(220, 231, 245);
+    background: rgb(220, 231, 245);
+    background: linear-gradient(90deg, rgb(236, 236, 236) 0%, rgb(156, 199, 255) 12%, rgb(156, 199, 255) 88%, rgb(236, 236, 236) 100%);
     border-radius: 0 0 4vw 4vw;
 }
 
