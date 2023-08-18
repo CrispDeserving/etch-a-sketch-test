@@ -1,7 +1,4 @@
-const ROWS = 4;
-const COLUMNS = 4;
-
-window.addEventListener("DOMContentLoaded", () => {
+function addPixels() {
     const wrapper = document.querySelector(".wrapper");
     
     const row_wrapper = document.createElement("div");
@@ -18,4 +15,4 @@ window.addEventListener("DOMContentLoaded", () => {
         const new_wrapper = row_wrapper.cloneNode(true);
         wrapper.appendChild(new_wrapper);
     }
-});
+}
