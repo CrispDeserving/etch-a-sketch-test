@@ -21,7 +21,7 @@ function calculateGap(pixels_per_side) {
     const pixel_width = (wrapper_side_length / wrapper_by_pixel_widths);
     const gap_width = pixel_width * PIXEL_TO_GAP_PERCENT;
 
-    const GAP_UNITS = `${100 * Math.max(gap_width, 2) / getWindowHeight()}vh`;
+    const GAP_UNITS = `${100 * Math.max(gap_width, 1) / getWindowHeight()}vh`;
     return GAP_UNITS;
 }
 
@@ -46,6 +46,11 @@ function bindButtons() {
 function updatePixelSides() {
     const new_pixel_sides = Number(prompt("How many pixels per side?"));
     if (new_pixel_sides === NaN || new_pixel_sides <= 0) return;
+
+    if (new_pixel_sides > 100) {
+        alert("Pixel side is too big, doing nothing...");
+        return;
+    }
 
     createPixelCanvas(new_pixel_sides);
 }
