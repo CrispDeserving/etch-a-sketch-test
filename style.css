@@ -17,13 +17,14 @@ body {
     flex: initial;
     height: 100vh;
     width: 30vw;
+    background-color: rgb(141, 141, 141);
 }
 
 .title-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 98%;
     height: 10vh;
     background-color: rgb(86, 192, 228);
     border-left: 0.4vw dashed black;
@@ -41,16 +42,34 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5vh;
+    gap: 3vh;
+    padding: 8vh 5vh;
     flex: 1;
     width: 25vw;
     background-color: rgb(220, 231, 245);
+    border-radius: 0 0 4vw 4vw;
+}
+
+.options-label {
+    font-size: 4vh;
+    font-family: sans-serif;
+    text-align: center;
 }
 
 #update-pixel-canvas {
-    width: 20vw;
     padding: 1vh;
     border-radius: 1rem;
+    font-size: 2vh;
+}
+
+.sidebar-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18vw;
+    height: 4vh;
+    border-radius: 0 0 0.75vw 0.75vw;
+    background-color: rgb(193, 255, 100);
     font-size: 2vh;
 }
 
