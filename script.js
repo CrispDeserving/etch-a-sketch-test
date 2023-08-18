@@ -1,5 +1,6 @@
 function setup() {
     addPixels();
+    bindPixelHovers();
 }
 
 function addPixels() {
@@ -18,5 +19,19 @@ function addPixels() {
     for (let j=0; j<ROWS; j++) {
         const new_wrapper = row_wrapper.cloneNode(true);
         wrapper.appendChild(new_wrapper);
+    }
+}
+
+function bindPixelHovers() {
+    const pixels = document.querySelectorAll(".pixel");
+
+    for (let pixel of pixels) {
+        pixel.addEventListener("mouseenter", (e) => {
+            e.target.classList.add("highlight");
+        });
+
+        pixel.addEventListener("mouseout", (e) => {
+            e.target.classList.remove("highlight");
+        });
     }
 }
