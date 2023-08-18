@@ -1,6 +1,7 @@
 function setup() {
-    addPixels();
+    newPixelCanvas(DEFAULT_PIXELS_PER_SIDE);
     bindPixelHovers();
+    bindButtons();
     updateGap(calculateGap());
 }
 
@@ -32,20 +33,34 @@ function updateGap(gap_length) {
     }
 }
 
-function addPixels() {
+function bindButtons() {
+    const update_button = document.querySelector("#update-pixel-canvas");
+
+    update_button.addEventListener("click", updatePixelSides);
+}
+
+function updatePixelSides() {
+    const new_pixel_sides = Number(prompt("How many pixels per side?"));
+    if (new_pixel_sides === NaN || new_pixel_sides <= 0) return;
+
+    newPixelCanvas(new_pixel_sides);
+}
+
+function newPixelCanvas(pixels_per_side) {
     const wrapper = document.querySelector(".pixel-wrapper");
+    wrapper.textContent = "";
     
     const row_wrapper = document.createElement("div");
     row_wrapper.classList.add("row-wrapper");
     
     const pixel = document.createElement("div");
     pixel.classList.add("pixel");
-    for (let i=0; i<PIXELS_PER_SIDE; i++) {
+    for (let i=0; i<pixels_per_side; i++) {
         const new_pixel = pixel.cloneNode();
         row_wrapper.appendChild(new_pixel);
     }
 
-    for (let j=0; j<PIXELS_PER_SIDE; j++) {
+    for (let j=0; j<pixels_per_side; j++) {
         const new_wrapper = row_wrapper.cloneNode(true);
         wrapper.appendChild(new_wrapper);
     }
