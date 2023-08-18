@@ -10,9 +10,9 @@ function getWindowHeight() {
 
 function calculateGap() {
     const wrapper_side_length = document.querySelector(".pixel-wrapper").clientWidth;
-    const GAPS = ROWS + 1;
+    const GAPS = PIXELS_PER_SIDE + 1;
 
-    const wrapper_by_pixel_widths = ROWS + (GAPS * PIXEL_TO_GAP_PERCENT);
+    const wrapper_by_pixel_widths = PIXELS_PER_SIDE + (GAPS * PIXEL_TO_GAP_PERCENT);
     const pixel_width = (wrapper_side_length / wrapper_by_pixel_widths);
     const gap_width = pixel_width * PIXEL_TO_GAP_PERCENT;
 
@@ -40,12 +40,12 @@ function addPixels() {
     
     const pixel = document.createElement("div");
     pixel.classList.add("pixel");
-    for (let i=0; i<COLUMNS; i++) {
+    for (let i=0; i<PIXELS_PER_SIDE; i++) {
         const new_pixel = pixel.cloneNode();
         row_wrapper.appendChild(new_pixel);
     }
 
-    for (let j=0; j<ROWS; j++) {
+    for (let j=0; j<PIXELS_PER_SIDE; j++) {
         const new_wrapper = row_wrapper.cloneNode(true);
         wrapper.appendChild(new_wrapper);
     }
