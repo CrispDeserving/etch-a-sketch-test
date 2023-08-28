@@ -72,6 +72,7 @@ body {
     height: 4vh;
     border-radius: 0 0 0.75vw 0.75vw;
     background-color: rgb(193, 255, 100);
+    background: linear-gradient(90deg, rgb(193, 255, 100) 0%,rgb(236, 236, 236) 30%, rgb(236, 236, 236) 70%, rgb(193, 255, 100) 100%);
     font-size: 2vh;
 }
 
